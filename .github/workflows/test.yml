@@ -2,9 +2,10 @@ name: testing github actions
 
 on:
   push:
-    - master
-    - develop
-    - feature/*
+    branches:
+      - master
+      - develop
+      - feature/*
 
 jobs:
   run-test:
