@@ -11,3 +11,7 @@ clean:
 .PHONY: env
 env:
 	env | sort
+
+.PHONY: cj
+cj:
+	go build -o build/cj cj/main.go
