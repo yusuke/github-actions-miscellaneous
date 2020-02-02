@@ -17,6 +17,8 @@ jobs:
 
       - name: show env
         run: env | sort
+      - name: Show event json
+        run: cat ${GITHUB_EVENT_PATH}
 
       - name: go get miscellaneous
         run: |
