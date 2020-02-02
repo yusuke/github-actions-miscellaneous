@@ -6,6 +6,8 @@ on:
 
 jobs:
   show-event:
+    name: いろいろやる
+    runs-on: ubuntu-latest
     steps:
       - name: 環境変数
         run: make env
