@@ -10,6 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 環境変数
-        run: make env
+        run: env
       - name: イベントJSON(GITHUB_EVENT_PATH)ファイル
         run: cat ${GITHUB_EVENT_PATH}
