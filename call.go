@@ -19,11 +19,11 @@ type KeyValue interface {
 
 // ParseKeyValue parses line of string into key and value.
 func ParseKeyValue(line string) (KeyValue, error) {
-	count := strings.Count(line, " = ")
+	count := strings.Count(line, "=")
 	if count != 1 {
 		return nil, fmt.Errorf("invalid input: %s", line)
 	}
-	items := strings.Split(line, " = ")
+	items := strings.Split(line, "=")
 	if len(items) != 2 {
 		return nil, fmt.Errorf("invalid state expect 2 items, got %d from: %s", len(items), line)
 	}
