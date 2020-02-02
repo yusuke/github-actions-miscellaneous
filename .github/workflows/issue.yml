@@ -6,7 +6,7 @@ on:
 
 jobs:
   show-event:
-    name: いろいろやる
+    name: イシューきたぞ
     runs-on: ubuntu-latest
     steps:
       - name: 環境変数
