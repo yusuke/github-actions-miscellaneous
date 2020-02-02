@@ -1,0 +1,13 @@
+name: イシューオープン
+
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+jobs:
+  show-event:
+    steps:
+      - name: 環境変数
+        run: make env
+      - name: イベントJSON(GITHUB_EVENT_PATH)ファイル
+        run: cat ${GITHUB_EVENT_PATH}
