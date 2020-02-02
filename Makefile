@@ -10,4 +10,4 @@ clean:
 
 .PHONY: env
 env:
-	env
+	env | sort
