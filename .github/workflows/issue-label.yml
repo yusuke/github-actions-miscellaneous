@@ -1,0 +1,17 @@
+name: ラベル関連
+
+on:
+  issues:
+    types: [labeled, unlabeled]
+  label:
+    types: [created, edited, deleted]
+
+jobs:
+  show-event:
+    name: ラベルが変更されたぞコラァ
+    runs-on: ubuntu-latest
+    steps:
+      - name: 環境変数
+        run: env
+      - name: イベントJSON(GITHUB_EVENT_PATH)ファイル
+        run: cat ${GITHUB_EVENT_PATH}
