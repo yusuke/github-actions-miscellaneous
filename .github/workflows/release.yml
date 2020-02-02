@@ -1,0 +1,25 @@
+name: release
+
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  release-cj:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: set up golang
+        uses: actions/setup-go@v1
+
+      - name: release
+        uses: goreleaser/goreleaser-action@v1
+        with:
+          version: latest
+          args: release --skip-publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
