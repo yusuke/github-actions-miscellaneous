@@ -1,12 +1,12 @@
 .PHONY: test
 test:
-	mkdir build
+	if [ ! -d build ]; then mkdir build; fi
 	go test -coverprofile=build/cover.out ./...
 
 .PHONY: clean
 clean:
 	go clean
-	rm -rf build
+	if [ -d build ]; then rm -rf build ; fi
 
 .PHONY: env
 env:
