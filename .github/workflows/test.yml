@@ -26,4 +26,11 @@ jobs:
         run: cat ${GITHUB_EVENT_PATH}
       - name: Run tests
         run: make test
+      - name: Create coverage report
+        run: make cover
 
+      - name: Save report
+        uses: actions/upload-artifact@v1
+        with:
+          name: coverage-report.html
+          path: build/cover.html
