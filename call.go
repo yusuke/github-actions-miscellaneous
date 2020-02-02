@@ -19,17 +19,16 @@ type KeyValue interface {
 
 // ParseKeyValue parses line of string into key and value.
 func ParseKeyValue(line string) (KeyValue, error) {
-	count := strings.Count(line, "=")
-	if count != 1 {
+	count := strings.Count(line, " =")
+	if count == 0 {
 		return nil, fmt.Errorf("invalid input: %s", line)
 	}
-	items := strings.Split(line, "=")
-	if len(items) != 2 {
-		return nil, fmt.Errorf("invalid state expect 2 items, got %d from: %s", len(items), line)
-	}
+	index := strings.Index(line, " =")
+	key := line[:index]
+	value := strings.Replace(line[index:], " =", "", 1)
 	return &pair{
-		first:  strings.Trim(items[0], " \t"),
-		second: strings.Trim(items[1], " \t"),
+		first:  strings.Trim(key, " \t"),
+		second: strings.Trim(value, " \t"),
 	}, nil
 }
 
