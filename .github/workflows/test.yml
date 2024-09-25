@@ -30,7 +30,7 @@ jobs:
         run: make cover
 
       - name: Save report
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v4.3.2
         with:
           name: coverage-report
           path: build/cover.html
